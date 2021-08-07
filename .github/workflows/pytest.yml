@@ -26,4 +26,11 @@ jobs:
           pip install -r requirements.txt -r requirements-dev.txt
       - name: Test with pytest
         run: |
-          pytest
+          pytest --cov-report=html
+      - name: Publish coverage report
+        if: (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/develop') && ${{ matrix.python-version }} == 3.9
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./htmlcov
+          destination_dir: ./coverage
