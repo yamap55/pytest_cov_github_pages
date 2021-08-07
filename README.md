@@ -1,56 +1,14 @@
-# python_repository_simple
+# pytest_cov_github_pages
 
-本リポジトリはシンプルな Python 環境のテンプレートリポジトリです
-devcontainer の設定をしていますので、VS Code と Docker、Git さえあれば各種開発用設定が行われた Python の開発環境が構築され、即時開発が可能です
-GitHub のリポジトリページの「Use this template」を押下して使用してください
+## 概要
 
-## 内容
+- pytest の coverage を GitHub Pages にデプロイする
+  - https://yamap55.github.io/pytest_cov_github_pages/
 
-- [devcontainer](https://code.visualstudio.com/docs/remote/containers)
-- lint
-  - [flake8](https://flake8.pycqa.org/en/latest/)
-  - [black](https://black.readthedocs.io/en/stable/)
-  - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance), [pyright](https://github.com/microsoft/pyright)
-  - [hadolint](https://github.com/hadolint/hadolint)
-- [pytest](https://docs.pytest.org/en/stable/)
-- [GitHub Actions](https://github.co.jp/features/actions)
-- [logging](https://docs.python.org/ja/3/howto/logging.html)
+## 注意
 
-## 環境詳細
-
-- Python : 3.9.6
-
-### 事前準備
-
-- Docker インストール
-- VS Code インストール
-- VS Code の拡張機能「Remote - Containers」インストール
-  - https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
-- 本リポジトリの clone
-- `.env` ファイルを空ファイルでプロジェクト直下に作成
-- 以下をプロジェクト名に合わせて変更
-  - `.devcontainer/devcontainer.json`
-    - `name`, `service`
-  - `docker-compose.yml`
-    - `services` の Key 名
-    - `image`, `container_name`
-  - main.py
-  - logging.conf
-    - `hoge` を使用するモジュール名に合わせる
-  - `README.md`
-  - `LICENSE`
-
-### 開発手順
-
-1. VS Code 起動
-2. 左下の緑色のアイコンクリック
-3. 「Remote-Containersa: Reopen in Container」クリック
-4. しばらく待つ
-   - 初回の場合コンテナー image の取得や作成が行われる
-5. 起動したら開発可能
-
-## ユニットテスト実行
-
-```
-pytest
-```
+- GitHub Pages は設定済みであることを想定
+  - [Configuring a publishing source for your GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+- `gh-pages` ブランチにはあらかじめ `index.html` を配置しておく必要がある
+- 見るべきファイルは以下のみで良いと思われる
+  - https://github.com/yamap55/pytest_cov_github_pages/blob/master/.github/workflows/pytest.yml
